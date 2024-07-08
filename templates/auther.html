@@ -2,8 +2,12 @@
 {% load static %}
 {% block content %}
     <h1>
-        Auther page
+        Auther :
     </h1>
+    {% for author in auther %}
+        <h4>{{author.id}}. {{author.get_full_info}}</h4>
+<!--        <h5>Kitoblari : {{author.title}}</h5>-->
+    {% endfor %}
 
 {% endblock %}
 

@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <h1>
-        comment page
+        Book page
     </h1>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for book in books %}
@@ -18,13 +18,19 @@
               </div>
                 <div class="card-footer">
                 <small class="text-body-secondary">Price: {{book.price}}</small>
-              </div>
+                </div>
                 <div class="card-footer">
                 <small class="text-body-secondary">Count: {{book.count}}</small>
               </div>
+                <div>
+<!--                    <small><p class="text-body-secondary" href="">Comments</p></small>-->
+                    <small class="text-body-secondary"><a href="">  Comment : Link </a></small>
+                </div>
+
             </div>
           </div>
         {% endfor %}
     </div>
+
 
 {% endblock %}

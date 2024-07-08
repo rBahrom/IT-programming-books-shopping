@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Books
+from .models import Books, Auther, Commit
 
 # Create your views here.
 
@@ -16,10 +16,12 @@ def books(request):
     return render(request, 'books.html', {'books': books})
 
 def auther(request):
-    return render(request, 'auther.html')
+    auther = Auther.objects.all()
+    return render(request, 'auther.html', {'auther': auther})
 
 def commit(request):
-    return render(request, 'commit.html')
+    commit = Commit.objects.all()
+    return render(request, 'commit.html', {'commit': commit})
 
 def alls(request):
     return render(request, 'alls.html')

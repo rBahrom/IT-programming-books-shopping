@@ -20,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SecretKey")
+SECRET_KEY = 'django-insecure-dt*bxtslrn&++!ti_4+-q4mny7r3g1^$t_s(t&6%zka0w4f1gd'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     # app
     'blog',
     'users',
+    # 'import-export',
 ]
 
 MIDDLEWARE = [
@@ -78,11 +80,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("name"),
-        "USER": os.getenv("user"),
-        "PASSWORD": os.getenv("password"),
-        "HOST": os.getenv("host"),
-        "PORT": os.getenv("port"),
+        "NAME": "django_3",
+        "USER": "postgres",
+        "PASSWORD": "bakhrom05",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 

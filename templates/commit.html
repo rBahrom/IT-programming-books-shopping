@@ -2,8 +2,11 @@
 {% load static %}
 {% block content %}
     <h1>
-        comment page
+        comment :
     </h1>
+    {% for comment in commit %}
+        <h5>{{comment.id}}. {{comment.text}}</h5>
+    {% endfor %}
 
 {% endblock %}
 

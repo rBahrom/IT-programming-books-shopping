@@ -5,18 +5,20 @@ from .helpers import SaveMedia
 # Create your models here.
 
 class Auther(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    birth_day = models.DateField()
-    create_date = models.DateTimeField(auto_now_add=True)
+    objects = None
+    first_name = models.CharField(verbose_name="ISM", max_length=50)
+    last_name = models.CharField(verbose_name="FAMILIYA", max_length=50)
+    # title = models.ForeignKey(Books, on_delete=models.CASCADE)
+    birth_day = models.DateField(verbose_name="TUG'ILGAN SANASI")
+    create_date = models.DateTimeField(verbose_name="RUYHATDAN O'TGAN SANA", auto_now_add=True)
 
     def __str__(self):
         return (f"{self.first_name}  "
                 f"{self.last_name}")
 
     def get_full_info(self):
-        return (f"First name : {self.first_name}  "
-                f"Last name: {self.last_name}")
+        return (f" {self.first_name}  "
+                f"{self.last_name}")
 
 class Books(models.Model):
     objects = None
