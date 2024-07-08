@@ -1,0 +1,30 @@
+{% extends 'alls.html' %}
+{% load static %}
+{% block content %}
+    <h1>
+        comment page
+    </h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for book in books %}
+          <div class="col">
+            <div class="card h-100">
+              <img src="{{ book.image.url }}"  alt=" not picture " width="200" >
+              <div class="card-body">
+                <h5 class="card-title">{{book.id}}. {{book.title}}</h5>
+                <p class="card-text">Descriptions: {{book.description}}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Auther: {{book.auther}}</small>
+              </div>
+                <div class="card-footer">
+                <small class="text-body-secondary">Price: {{book.price}}</small>
+              </div>
+                <div class="card-footer">
+                <small class="text-body-secondary">Count: {{book.count}}</small>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
