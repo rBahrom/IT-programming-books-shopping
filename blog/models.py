@@ -40,14 +40,15 @@ class Books(models.Model):
 class Commit(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()
-    book = models.ManyToManyField(Books)
+    kitob = models.ManyToManyField(Books)
     create_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return (f"User: {self.user}"
                 f"Comment: {self.text}"
-                f"Book: {self.book}")
+                f"Book: {self.kitob}")
 
 class Country(models.Model):
     address = models.CharField(max_length=150)
     create_date = models.DateTimeField(auto_now_add=True)
+

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Progress Bar</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #f0f0f0;
+        }
+        .progress {
+            width: 1800%;
+            height: 30px;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #dc3545;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            border-radius: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        body {
+            background-color: #ff9a9e;
+            animation: colorChange 10s infinite alternate;
+        }
+        @keyframes colorChange {
+            0% { background-color: #ff9a9e; }
+            10% { background-color: #fad0c4; }
+            20% { background-color: #fbc2eb; }
+            30% { background-color: #a18cd1; }
+            40% { background-color: #f6d365; }
+            50% { background-color: #96e6a1; }
+            60% { background-color: #ffdd94; }
+            70% { background-color: #d4a5a5; }
+            80% { background-color: #8ec5fc; }
+            90% { background-color: #e0c3fc; }
+            100% { background-color: #f9c1b1; }
+    </style>
+</head>
+<body>
+
+    <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="myProgress">
+        <div class="progress-bar" id="myBar">0%</div>
+    </div>
+
+    <button onclick="move()">Start</button>
+
+    <script>
+    function move() {
+        var elem = document.getElementById("myBar");
+        var width = 0;
+        var id = setInterval(frame, 10);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+            } else {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width + "%";
+            }
+        }
+    }
+    </script>
+
+</body>
+</html>
