@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% extends 'alls.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Card</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card {
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+        .card-img {
+            border-radius: 15px 0 0 15px;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .text-body-secondary {
+            color: #6c757d !important;
+        }
+        .img-col {
+            flex: 1;
+        }
+        .content-col {
+            flex: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="card mb-3" style="max-width: 800px;">
+        <div class="row g-0">
+            <div class="col-md-5 img-col">
+                <img src="{{ book.image.url }}" class="img-fluid rounded-start card-img" alt="...">
+            </div>
+            <div class="col-md-7 content-col">
+                <div class="card-body">
+                    <h5 class="card-title">Book: {{ book.title }}</h5>
+                    <p class="card-text">Description: {{ book.description }}</p>
+                    <p class="card-text"><small class="text-body-secondary">Author: {{ book.auther }}</small></p>
+                    <p class="card-text"><small class="text-body-secondary">Price: {{ book.price }} 000 so'm</small></p>
+                    <p class="card-text"><small class="text-body-secondary">Count: {{ book.count }}</small></p>
+                    <p class="card-text"><small class="text-body-secondary" style="color: black">Date: {{ book.create_date }}</small></p>
+
+                </div>
+            </div>
+        </div>
+        <div class="container mt-1">
+            <div class="d-flex">
+                <a href="{% url 'books' %}">
+                    <button type="button" class="btn btn-danger mr-2">Back</button>
+                </a>
+                <a href="">
+                    <button type="button" class="btn btn-warning">Comment</button>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+{% endblock %}

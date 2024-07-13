@@ -1,0 +1,21 @@
+{% extends 'alls.html' %}
+{% load static %}
+{% block content %}
+    <h1>
+        Welcome to Admin page
+    </h1>
+<div class="card" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">First name : {{User.first_name}}</li>
+        <li class="list-group-item">Last name : {{User.last_name}}</li>
+        <li class="list-group-item">Email : {{User.email}}</li>
+        <li class="list-group-item">Username : {{User.username}}</li>
+        <li class="list-group-item">Password : {{User.password}}</li>
+      </ul>
+</div>
+
+
+<a href="{% url 'account' %}"><button type="button" class="btn btn-danger">⬅️ Back</button></a>
+
+
+{% endblock %}

@@ -1,67 +1,15 @@
 <!DOCTYPE html>
+{% extends 'alls.html' %}
+{% load static %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>comment</title>
-<style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.car-details {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-
-.car-image img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-}
-
-.car-info {
-    flex: 1;
-    margin-left: 20px;
-}
-
-.car-info p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 20px 0;
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.btn:hover {
-    background-color: #555;
-}
-</style>
 </head>
 <body>
+<h3>
 {% for comment in commit %}
     <div class="container">
         <h1>{{ car.name }}</h1>
@@ -75,13 +23,15 @@ h1 {
                 <p><strong>User:</strong> {{ comment.user }}</p>
                 <p><strong>Comment:</strong> {{ comment.text }}</p>
                 <p><strong>Books:</strong>
-                              {{book.title}}
+                              {{book.book.title}}
                 </p>
-                <p><strong>Data:</strong> {{ comment.create_date }}</p>
+                <p><strong>Data:</strong> {{ comment.create_date }}</p><br>///////////////////////////////////<br>
             </div>
         </div>
     </div>
 {% endfor %}
+    </h3>
 <a href="{% url 'books' %}" class="btn btn-primary">Back</a>
 </body>
 </html>
+{% endblock %}

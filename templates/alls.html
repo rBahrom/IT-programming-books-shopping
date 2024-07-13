@@ -50,28 +50,25 @@
 <body style="background-color: #add8e6;">
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">IT Programming</a>
+        <a class="navbar-brand" href="#">Book Shopping</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'home' %}">🛄 Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Bo'lim
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'books' %}">Books</a></li>
-                <li><a class="dropdown-item" href="{% url 'commit' %}">Comment</a></li>
-                <li><a class="dropdown-item" href="{% url 'auther' %}">Auther</a></li>
+                <li><a class="dropdown-item" href="{% url 'books' %}">📚 Books</a></li>
+                <li><a class="dropdown-item" href="{% url 'commit' %}">📝 Comment</a></li>
+                <li><a class="dropdown-item" href="{% url 'auther' %}">👥 Auther</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="http://127.0.0.1:8000/admin/">Amin page</a></li>
+                <li><a class="dropdown-item" href="http://127.0.0.1:8000/admin/">👨‍🔧 Amin page</a></li>
               </ul>
             </li>
             <li class="nav-item">
@@ -80,7 +77,7 @@
           </ul>
           <form class="d-flex" method="POST">
             {% csrf_token %}
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <input class="form-control me-2" type="search" placeholder="🔍 Search" aria-label="Search" name="search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
           <div class="dropdown-center">
@@ -89,13 +86,12 @@
               </button>
               <ul class="dropdown-menu">
                   {% if request.user.is_authenticated %}
-                    <li><a class="dropdown-item" href="http://127.0.0.1:8000">Account</a></li>
-                    <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                        <li><a class="dropdown-item" href="{% url 'register' %}">🚮 Log Out</a></li>
+                        <li><a class="dropdown-item" href="{% url 'account' %}">👨🏼‍💻 Account</a></li>
                   {% else %}
-                    <li><a class="dropdown-item" href="http://127.0.0.1:8000">Log in</a></li>
-                    <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+                        <li><a class="dropdown-item" href="{% url 'login' %}">Log in</a></li>
+                        <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
                   {% endif %}
-    <!--                <li><a class="dropdown-item" href="#">Action three</a></li>-->
               </ul>
           </div>
         </div>

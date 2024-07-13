@@ -3,6 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from secrets import compare_digest
+from blog.models import Auther
 
 
 # Create your views here.
@@ -12,15 +13,16 @@ def load(request):
 
 def login_view(request):
     if request.method == 'POST':
-        # username = request.POST['username']
-        # password = request.POST['password']
         login_form = AuthenticationForm(request, data=request.POST)
         if login_form.is_valid():
             user = login_form.get_user()
             login(request, user)
             return redirect('home')
+
         else:
             return render(request, 'login.html', context={'message': "username or password invalid"})
+    return render(request, 'login.html')
+def classes(request):
     return render(request, 'login.html')
 
 def register_view(request):
@@ -44,4 +46,19 @@ def register_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('register')
+    return redirect('login')
+
+def account_view(request):
+    return render(request, 'profile/account.html')
+
+
+def account_profile_view(request):
+    # account = Auther.objects.get(id=id)
+    return render(request, 'profile/person.html')
+
+def shopping_books_view(request):
+    return  render(request, 'profile/shopping_books.html')
+
+
+def like_books_view(request):
+    return render(request, 'profile/like_books.html')
